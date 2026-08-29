@@ -5,7 +5,7 @@ Repositorio colaborativo de la tarea 1 de programación de videojuegos
 ## Integrantes
 - Nombre 1 – Rol
 - Nombre 2 – Rol
-- Nombre 3 – Rol
+- Lizeth Yuliana Paz Jimenez – Diseñador visual
 - Angie Marcela Enriquez Florez – Rol
 
 ## Descripción
