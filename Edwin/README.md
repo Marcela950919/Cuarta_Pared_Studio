@@ -1,7 +1,7 @@
 # Cuarta_Pared_Studio
 Repositorio colaborativo de la tarea 1 de programación de videojuegos
 Edwin
-![Foto personal](EdwinFoto.jpg)
+![Foto personal](EdwinFoto.jpeg)
 
 - **Nombre:** Edwin
 - **Rol en el equipo:** Programador
