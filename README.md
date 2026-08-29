@@ -4,7 +4,7 @@ Repositorio colaborativo de la tarea 1 de programación de videojuegos
 
 ## Integrantes
 - Nombre 1 – Rol
-- Nombre 2 – Rol
+- Santiago Andrade Ordoñez – Diseñador de videojuegos
 - Lizeth Yuliana Paz Jimenez – Diseñador visual
 - Angie Marcela Enriquez Florez – Rol
 
