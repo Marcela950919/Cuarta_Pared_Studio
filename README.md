@@ -1,12 +1,8 @@
-# Cuarta_Pared_Studio
-Repositorio colaborativo de la tarea 1 de programación de videojuegos
-# Nombre del proyecto
-
-## Integrantes
-- Santiago Andrade Ordoñez – Diseñador del videojuego
-- Edwin Sotelo Ruiz- Programador
-- Lizeth Yuliana Paz Jimenez – Diseñador visual
-- Angie Marcela Enriquez Florez – Gestora del repositorio y proyecto
-
-## Descripción
-Breve descripción de lo que consiste el proyecto.
+## Santiago Andrade Ordoñez
+* **Rol de la industria:** Diseñador de videojuegos
+* **Ubicación:** Santiago de Cali, Colombia
+* **Perfil:**. Estudiante de Ingenieria Multimedia orientado al Diseño y apartado visual.
+* **Mi plato favorito:** 
+![Plato favorito](Santiago/plato_favorito.jpg)
+* **Mi foto personal:** 
+![Foto personal](Santiago/Santiago_foto_personal.jpg)
