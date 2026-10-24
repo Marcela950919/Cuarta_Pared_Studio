@@ -1,77 +1,89 @@
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// Manages global game state, UI score tracking, sound effects, and victory sequence.
+/// </summary>
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    [Header("UI del Contador")]
-    public TMP_Text contadorTexto;
+    [Header("UI Score Elements")]
+    public TMP_Text scoreText;
 
-    [Header("Elementos de Victoria")]
-    public GameObject panelVictoria;
-    public GameObject anoViejoCompleto;
+    [Header("Victory Sequence Elements")]
+    public GameObject victoryPanel;
+    public GameObject fullAnoViejoModel;
 
-    [Header("Sonido / Accesibilidad (WCAG 2.2)")]
+    [Header("Audio & Accessibility SFX")]
     public AudioSource audioSource;
-    public AudioClip sonidoRecoleccion;
-    public AudioClip sonidoVictoria; // <--- New clip for the win
+    public AudioClip collectionSFX;
+    public AudioClip victorySFX;
 
-    private int piezasRecolectadas = 0;
-    private int totalPiezas = 3;
+    private int collectedItems = 0;
+    private int totalItems = 3;
 
     private void Awake()
     {
+        // Enforce Singleton pattern for global access
         if (instance == null)
         {
             instance = this;
         }
     }
 
-    public void RecogerPieza()
+    /// <summary>
+    /// Increments collected item counter and updates UI. Triggers victory if all items are gathered.
+    /// </summary>
+    public void CollectPiece()
     {
-        piezasRecolectadas++;
+        collectedItems++;
+        UpdateUI();
 
-        ActualizarUI();
-
-        if (piezasRecolectadas >= totalPiezas)
+        // Check if player completed the main objective
+        if (collectedItems >= totalItems)
         {
-            ActivarVictoria();
+            TriggerVictory();
         }
         else
         {
-            // Only the standard effect plays if you have not yet collected all the pieces.
-            if (audioSource != null && sonidoRecoleccion != null)
+            // Play item collection sound feedback
+            if (audioSource != null && collectionSFX != null)
             {
-                audioSource.PlayOneShot(sonidoRecoleccion);
+                audioSource.PlayOneShot(collectionSFX);
             }
         }
     }
 
-    void ActualizarUI()
+    /// <summary>
+    /// Updates textual UI displaying collected items count.
+    /// </summary>
+    void UpdateUI()
     {
-        if (contadorTexto != null)
+        if (scoreText != null)
         {
-            contadorTexto.text = "Piezas: " + piezasRecolectadas + " / " + totalPiezas;
+            scoreText.text = "Pieces: " + collectedItems + " / " + totalItems;
         }
     }
 
-    void ActivarVictoria()
+    /// <summary>
+    /// Triggers victory audio feedback, shows victory UI panel, and reveals the finished model.
+    /// </summary>
+    void TriggerVictory()
     {
-        // Play the special victory sound when the 3 pieces are put together
-        if (audioSource != null && sonidoVictoria != null)
+        if (audioSource != null && victorySFX != null)
         {
-            audioSource.PlayOneShot(sonidoVictoria);
+            audioSource.PlayOneShot(victorySFX);
         }
 
-        if (anoViejoCompleto != null)
+        if (fullAnoViejoModel != null)
         {
-            anoViejoCompleto.SetActive(true);
+            fullAnoViejoModel.SetActive(true);
         }
 
-        if (panelVictoria != null)
+        if (victoryPanel != null)
         {
-            panelVictoria.SetActive(true);
+            victoryPanel.SetActive(true);
         }
     }
 }

@@ -258,12 +258,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a20cf872ef0e0d40897ee4a8b125bc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contadorTexto: {fileID: 1237809426}
-  panelVictoria: {fileID: 929161437}
-  anoViejoCompleto: {fileID: 1852252716}
+  scoreText: {fileID: 1237809426}
+  victoryPanel: {fileID: 929161437}
+  fullAnoViejoModel: {fileID: 1852252716}
   audioSource: {fileID: 92941158}
-  sonidoRecoleccion: {fileID: 8300000, guid: da6065b3f6c84904cb0d72dfb7926443, type: 3}
-  sonidoVictoria: {fileID: 8300000, guid: b579418e3cdb6ff4298d7516a17a3858, type: 3}
+  collectionSFX: {fileID: 8300000, guid: da6065b3f6c84904cb0d72dfb7926443, type: 3}
+  victorySFX: {fileID: 8300000, guid: b579418e3cdb6ff4298d7516a17a3858, type: 3}
 --- !u!4 &92941157
 Transform:
   m_ObjectHideFlags: 0
@@ -722,8 +722,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 148532605}
-  sonidoPaso: {fileID: 8300000, guid: 01474b00c43e2d04388329712ba2ba16, type: 3}
-  intervaloPasos: 0.4
+  footstepSFX: {fileID: 8300000, guid: 01474b00c43e2d04388329712ba2ba16, type: 3}
+  stepInterval: 0.4
 --- !u!82 &148532605
 AudioSource:
   m_ObjectHideFlags: 0

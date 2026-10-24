@@ -1,18 +1,22 @@
 using UnityEngine;
 
+/// <summary>
+/// Handles player movement sound feedback at set intervals to enhance accessibility.
+/// </summary>
 public class PlayerFootsteps : MonoBehaviour
 {
-    [Header("Configuración de Sonido")]
+    [Header("Audio Configuration")]
     public AudioSource audioSource;
-    public AudioClip sonidoPaso;
+    public AudioClip footstepSFX;
 
-    [Header("Ritmo de los Pasos")]
-    public float intervaloPasos = 0.4f;
+    [Header("Footstep Timing")]
+    public float stepInterval = 0.4f;
 
     private float timer = 0f;
 
     void Start()
     {
+        // Ensure looping is disabled so steps don't play infinitely
         if (audioSource != null)
         {
             audioSource.loop = false;
@@ -21,26 +25,26 @@ public class PlayerFootsteps : MonoBehaviour
 
     void Update()
     {
-        // Detects whether you are pressing movement keys
+        // Check movement input from WASD or Arrow keys
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputZ = Input.GetAxisRaw("Vertical");
 
-        bool estaMoviendose = (inputX != 0 || inputZ != 0);
+        bool isMoving = (inputX != 0 || inputZ != 0);
 
-        if (estaMoviendose)
+        if (isMoving)
         {
             timer += Time.deltaTime;
 
-            if (timer >= intervaloPasos)
+            if (timer >= stepInterval)
             {
-                ReproducirPaso();
+                PlayFootstepSound();
                 timer = 0f;
             }
         }
         else
         {
-            // Upon releasing the keys, it stops time and halts the audio immediately.
-            timer = intervaloPasos;
+            // Reset timer and stop audio immediately when player halts movement
+            timer = stepInterval;
             if (audioSource != null && audioSource.isPlaying)
             {
                 audioSource.Stop();
@@ -48,11 +52,14 @@ public class PlayerFootsteps : MonoBehaviour
         }
     }
 
-    void ReproducirPaso()
+    /// <summary>
+    /// Plays footstep audio clip.
+    /// </summary>
+    void PlayFootstepSound()
     {
-        if (audioSource != null && sonidoPaso != null)
+        if (audioSource != null && footstepSFX != null)
         {
-            audioSource.PlayOneShot(sonidoPaso);
+            audioSource.PlayOneShot(footstepSFX);
         }
     }
 }
